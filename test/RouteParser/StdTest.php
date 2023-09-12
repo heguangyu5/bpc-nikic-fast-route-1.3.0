@@ -2,11 +2,8 @@
 
 namespace FastRoute\RouteParser;
 
-use PHPUnit\Framework\TestCase;
-
-class StdTest extends TestCase
+class StdTest extends \PHPUnit_Framework_TestCase
 {
-    /** @dataProvider provideTestParse */
     public function testParse($routeString, $expectedRouteDatas)
     {
         $parser = new Std();
@@ -14,7 +11,6 @@ class StdTest extends TestCase
         $this->assertSame($expectedRouteDatas, $routeDatas);
     }
 
-    /** @dataProvider provideTestParseError */
     public function testParseError($routeString, $expectedExceptionMessage)
     {
         $parser = new Std();
@@ -22,7 +18,7 @@ class StdTest extends TestCase
         $parser->parse($routeString);
     }
 
-    public function provideTestParse()
+    public function dataProviderTestParse()
     {
         return [
             [
@@ -118,7 +114,7 @@ class StdTest extends TestCase
         ];
     }
 
-    public function provideTestParseError()
+    public function dataProviderTestParseError()
     {
         return [
             [
