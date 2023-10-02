@@ -1,3 +1,20 @@
+# BPC Notes 1: How to make?
+
+```shell
+cd src/
+make && sudo make install-libfastroute
+sudo ldconfig
+```
+
+# BPC Notes 2: How to run test?
+
+```shell
+cd test/
+phpunit-bpc --bootstrap=bootstrap.php --bpc=. .
+make
+./test --bootstrap=bootstrap.php
+```
+
 FastRoute - Fast request router for PHP
 =======================================
 
@@ -205,7 +222,7 @@ For the found status the second array element is the handler that was associated
 and the third array element is a dictionary of placeholder names to their values. For example:
 
     /* Routing against GET /user/nikic/42 */
-
+    
     [FastRoute\Dispatcher::FOUND, 'handler0', ['name' => 'nikic', 'id' => '42']]
 
 ### Overriding the route parser and dispatcher
